@@ -10,6 +10,8 @@ private int teethAmount;
 private String hatColor;
 private String shoeColor;
 private boolean hasArms;
+
+private int count;
 /*************************************************************************/ 
 
 //constructors 
@@ -23,6 +25,7 @@ public PotatoHead() {
 	hatColor = "black";
 	shoeColor = "black";
 	hasArms = false;
+	count = 0;
 } 
 
            //give initial values to all the instance variables that are declared as private } 
@@ -37,7 +40,7 @@ public PotatoHead(String ec, int ea, boolean hn, String nc, int ta, String hc, S
 	hatColor = hc;
 	shoeColor = sc;
 	hasArms = ha;
-
+	count = 0;
 } 
 /******************************************************/ 
 
@@ -119,11 +122,32 @@ public void setHasArms(boolean h)
 hasArms=h; 
 } 
 
+public void talk(){
+	System.out.println("Superb");
+}
+public void rps(){
+	int num = (int) (Math.random()*3);
+	switch(num){
+		case 0:
+		System.out.println("rock");
+		break;
+		case 1:
+		System.out.println("paper");
+		break;
+		case 2:
+		System.out.println("scissors");
+	}
+}
+public void countUp(){
+	count++;
+	System.out.println(count);
+}
+
 //toString 
 public String toString() 
 { 
 
-return "Eye Color, "+eyeColor+"\nEarring Amount, "+earringAmount+"\nHas Nose, "+hasNose+"\nTeeth Amount, "+teethAmount+"\nHat Color, "+hatColor+"\nShoe Color, "+shoeColor+"\nHas Arms, "+hasArms; } 
+return "Eye Color, "+eyeColor+"\nEarring Amount, "+earringAmount+"\nHas Nose, "+hasNose+"\nTeeth Amount, "+teethAmount+"\nHat Color, "+hatColor+"\nShoe Color, "+shoeColor+"\nHas Arms, "+hasArms+"\n"; } 
 /*****************************************************/ //main method 
 public static void main (String [] args) 
 { 
@@ -134,6 +158,11 @@ PotatoHead jim = new PotatoHead();
 PotatoHead bob = new PotatoHead("black",3,true,"red",20,"brown","green",true);
 String eye = bob.getEyeColor();
 jim.setTeethAmount(5);
+System.out.println(eye);
 System.out.print(bob.toString());
+bob.rps();
+for(int i=0;i<999999999;i++){
+	bob.countUp();
+}
 }
 }
